@@ -1,0 +1,944 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Professional Aircraft Seat Booking and Management System"
+    >
+
+    <title>SkyBook — Aircraft Booking System</title>
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✈
+            </div>
+
+            <div class="brand-text">
+                <strong>SkyBook</strong>
+                <span>Flight Management</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a
+                href="#dashboard"
+                class="nav-item active"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="#seats"
+                class="nav-item"
+            >
+                <span class="nav-icon">▥</span>
+                <span>Seat Map</span>
+            </a>
+
+            <a
+                href="#bookings"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Bookings</span>
+            </a>
+
+            <a
+                href="#waiting"
+                class="nav-item"
+            >
+                <span class="nav-icon">☷</span>
+                <span>Waiting List</span>
+            </a>
+
+            <a
+                href="#statistics"
+                class="nav-item"
+            >
+                <span class="nav-icon">◩</span>
+                <span>Statistics</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>All services operational</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    FLIGHT MANAGEMENT
+                </p>
+
+                <h1>
+                    Aircraft Seat Booking
+                </h1>
+
+                <p class="page-description">
+                    Manage seats, bookings and passenger information
+                    from one place.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="flight-badge">
+
+                    <span class="flight-icon">
+                        ✈
+                    </span>
+
+                    <div>
+                        <strong>SB-102</strong>
+                        <small>Scheduled Flight</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD STATISTICS
+             ================================================= -->
+
+        <section
+            id="dashboard"
+            class="stats-grid"
+        >
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ✈
+                </div>
+
+                <div class="stat-content">
+
+                    <span>Total Seats</span>
+
+                    <strong id="totalSeats">
+                        180
+                    </strong>
+
+                    <small>
+                        Aircraft capacity
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div class="stat-content">
+
+                    <span>Available Seats</span>
+
+                    <strong id="availableSeats">
+                        180
+                    </strong>
+
+                    <small>
+                        Ready for booking
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ●
+                </div>
+
+                <div class="stat-content">
+
+                    <span>Booked Seats</span>
+
+                    <strong id="bookedSeats">
+                        0
+                    </strong>
+
+                    <small>
+                        Confirmed passengers
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    $
+                </div>
+
+                <div class="stat-content">
+
+                    <span>Total Revenue</span>
+
+                    <strong id="totalRevenue">
+                        $0.00
+                    </strong>
+
+                    <small>
+                        Current bookings
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEAT MAP SECTION
+             ================================================= -->
+
+        <section
+            id="seats"
+            class="panel seat-panel"
+        >
+
+            <div class="panel-header">
+
+                <div>
+
+                    <p class="section-label">
+                        AIRCRAFT LAYOUT
+                    </p>
+
+                    <h2>
+                        Seat Selection
+                    </h2>
+
+                    <p>
+                        Select available seats for your passenger.
+                    </p>
+
+                </div>
+
+
+                <div class="seat-legend">
+
+                    <div class="legend-item">
+                        <span class="legend-seat available"></span>
+                        Available
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-seat selected"></span>
+                        Selected
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-seat booked"></span>
+                        Booked
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Aircraft -->
+
+            <div class="aircraft-wrapper">
+
+                <div class="aircraft-front">
+
+                    <div class="cockpit-window">
+                        ◀
+                    </div>
+
+                    <span>
+                        COCKPIT
+                    </span>
+
+                </div>
+
+
+                <div class="seat-map-container">
+
+                    <div
+                        id="seatMap"
+                        class="seat-map"
+                    ></div>
+
+                </div>
+
+
+                <div class="aircraft-back">
+
+                    <span>
+                        REAR
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Selection Summary -->
+
+            <div class="selection-summary">
+
+                <div class="selection-info">
+
+                    <span>
+                        Selected Seats
+                    </span>
+
+                    <strong id="selectedCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="selection-info">
+
+                    <span>
+                        Total Fare
+                    </span>
+
+                    <strong id="selectedFare">
+                        $0.00
+                    </strong>
+
+                </div>
+
+
+                <div class="selection-actions">
+
+                    <button
+                        type="button"
+                        id="undoSelection"
+                        class="btn btn-secondary"
+                    >
+                        ↶ Undo
+                    </button>
+
+                    <button
+                        type="button"
+                        id="clearSelections"
+                        class="btn btn-danger-outline"
+                    >
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOKING FORM
+             ================================================= -->
+
+        <section class="content-grid">
+
+
+            <div
+                id="bookings"
+                class="panel booking-panel"
+            >
+
+                <div class="panel-header compact">
+
+                    <div>
+
+                        <p class="section-label">
+                            PASSENGER
+                        </p>
+
+                        <h2>
+                            Confirm Booking
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="passengerName">
+                            Passenger Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="passengerName"
+                            placeholder="Enter passenger name"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="passengerPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="passengerPhone"
+                            placeholder="Enter phone number"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="bookSeats"
+                    class="btn btn-primary btn-large"
+                >
+                    <span>✓</span>
+                    Confirm Booking
+                </button>
+
+            </div>
+
+
+
+            <!-- Search -->
+
+            <div class="panel search-panel">
+
+                <div class="panel-header compact">
+
+                    <div>
+
+                        <p class="section-label">
+                            SEAT LOOKUP
+                        </p>
+
+                        <h2>
+                            Search Seat
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="searchSeat"
+                        placeholder="Example: 12A"
+                        maxlength="4"
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        id="searchButton"
+                        class="btn btn-primary"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTER SECTION
+             ================================================= -->
+
+        <section class="panel">
+
+            <div class="panel-header compact">
+
+                <div>
+
+                    <p class="section-label">
+                        SEAT FILTER
+                    </p>
+
+                    <h2>
+                        Find Available Seats
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="filter-buttons">
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="available"
+                >
+                    All Available
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="window"
+                >
+                    Window
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="middle"
+                >
+                    Middle
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="aisle"
+                >
+                    Aisle
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="bulkhead"
+                >
+                    Bulkhead
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="exit"
+                >
+                    Exit Row
+                </button>
+
+            </div>
+
+
+            <div
+                id="filterResults"
+                class="filter-results"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOKING RECORDS
+             ================================================= -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <p class="section-label">
+                        RESERVATIONS
+                    </p>
+
+                    <h2>
+                        Booking Records
+                    </h2>
+
+                    <p>
+                        Manage confirmed passenger reservations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="bookingRecords"
+                class="booking-records"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             WAITING LIST
+             ================================================= -->
+
+        <section
+            id="waiting"
+            class="content-grid"
+        >
+
+
+            <div class="panel">
+
+                <div class="panel-header compact">
+
+                    <div>
+
+                        <p class="section-label">
+                            QUEUE
+                        </p>
+
+                        <h2>
+                            Waiting List
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="waitingName">
+                            Passenger Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="waitingName"
+                            placeholder="Passenger name"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="waitingPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="waitingPhone"
+                            placeholder="Phone number"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="addWaiting"
+                    class="btn btn-primary"
+                >
+                    + Add to Waiting List
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header compact">
+
+                    <div>
+
+                        <p class="section-label">
+                            QUEUE STATUS
+                        </p>
+
+                        <h2>
+                            Passengers
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="waitingList"
+                    class="waiting-list"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+             ================================================= -->
+
+        <section
+            id="statistics"
+            class="panel statistics-panel"
+        >
+
+            <div class="panel-header">
+
+                <div>
+
+                    <p class="section-label">
+                        ANALYTICS
+                    </p>
+
+                    <h2>
+                        Flight Statistics
+                    </h2>
+
+                    <p>
+                        Current aircraft occupancy and seat data.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-grid">
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Occupancy Rate
+                    </span>
+
+                    <strong id="occupancyRate">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Window Seats
+                    </span>
+
+                    <strong id="windowSeats">
+                        60
+                    </strong>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Middle Seats
+                    </span>
+
+                    <strong id="middleSeats">
+                        60
+                    </strong>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Aisle Seats
+                    </span>
+
+                    <strong id="aisleSeats">
+                        60
+                    </strong>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Bulkhead Seats
+                    </span>
+
+                    <strong id="bulkheadSeats">
+                        6
+                    </strong>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Exit Row Seats
+                    </span>
+
+                    <strong id="exitSeats">
+                        12
+                    </strong>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Waiting Passengers
+                    </span>
+
+                    <strong id="waitingPassengers">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="footer">
+
+            <div>
+                <strong>SkyBook</strong>
+                <span>Aircraft Seat Booking System</span>
+            </div>
+
+            <div>
+                DSA Project • 30 Rows • 180 Seats
+            </div>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
